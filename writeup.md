@@ -68,7 +68,7 @@ As a last step, I normalized the image data because normalized data works better
 
 Here is an example of an original image and an normalized image:
 
-![alt text][image3]
+![alt text][norm]
 
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
