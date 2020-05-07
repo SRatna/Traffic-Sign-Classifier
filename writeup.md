@@ -92,7 +92,6 @@ My final model consisted of the following layers:
 | RELU					|												|
 | Dropout       		| 0.75 keep probability							|
 | Fully connected		| outputs 43  									|
-|						|												|
  
 
 
@@ -111,7 +110,7 @@ My final model results were:
 * validation set accuracy of 0.956 at 60th epoch.
 * testing set accuracy of 0.942
 
-Ofcourse I went through an iterative process to get the above architecture and hyperparameters:
+Of course I went through an iterative process to get the above architecture and hyperparameters:
 * Initially I followed LeNet architecture and perform only normalization and using learning rate of 0.001, I trained model for 80 epochs. I reached about 88% of accuracy on validation set.
 * After that I used dropout layers and also increase the size of hidden units but I was not able to get more than 90% accuracy.
 * Then, I did some reasearch and performed grayscaling which along with reduction in learning rate to 0.0005 brought the model to afore mentioned accuracy.
