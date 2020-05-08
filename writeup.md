@@ -107,8 +107,9 @@ To train the model, I used an adam optimizer and cross entropy loss function. I 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* validation set accuracy of 0.956 at 60th epoch.
-* testing set accuracy of 0.942
+* testing set accuracy of 0.997 at 60th epoch.
+* validation set accuracy of 0.949 at 60th epoch.
+* testing set accuracy of 0.94
 
 Of course I went through an iterative process to get the above architecture and hyperparameters:
 * Initially I followed LeNet architecture and perform only normalization and using learning rate of 0.001, I trained model for 80 epochs. I reached about 88% of accuracy on validation set.
@@ -132,65 +133,71 @@ Here are the results of the prediction:
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | Stop Sign      		| Stop sign   									| 
-| Pedestrians  			| Right-of-way at the next intersection			|
+| Pedestrians  			| Pedestrians                       			|
 | Bumpy Road			| Bumpy Road									|
 | 60 km/h	      		| 60 km/h    					 				|
 | Road work 			| Road work          							|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of 94% accuracy.
+The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of 94% accuracy.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. 
 
 The code for making predictions on my final model is located in the 2nd last cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a bumpy road sign (probability of 0.53), and the image does contain a bumpy road sign. The top five soft max probabilities were
+For the first image, the model is totally sure that this is a road work sign, and the image does contain a road work sign. The top five soft max probabilities were 
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .53         			| Bumpy road   									| 
-| .45     				| Bicycles crossing								|
-| .20					| Traffic signals								|
-| .17	      			| Road narrows on the right 	 				|
-| .10				    | Road work                 					|
+| 1.00         			| Road work   									| 
+| .00	      			| Dangerous curve to the right 	 				|
+| .00					| General caution                   			|
+| .00				    | Right-of-way at the next intersection 		|
+| .00     				| Children crossing								|
 
-For the second image, the model is poorly sure that this is a pedestrians sign (probability of 0.29), and the image does contain a pedestrians sign. The top five soft max probabilities were 
-
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .29         			| Pedestrians									| 
-| .19     				| Road narrows on the right 					|
-| .16					| Right-of-way at the next intersection     	|
-| .15	      			| General caution           	 				|
-| .13				    | Children crossing         					|
-
-For the third image, the model is relatively sure that this is a road work sign (probability of 0.76), and the image does contain a road work sign. The top five soft max probabilities were 
+For the second image, the model is totally sure that this is a 60km/h speed limit sign, and the image does contain a 60km/h speed limit sign. The top five soft max probabilities were 
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .76         			| Road work   									| 
-| .29     				| Children crossing								|
-| .16					| Right-of-way at the next intersection			|
-| .14	      			| Pedestrians               	 				|
-| .13				    | Priority road                					|
+| 1.00         			| Speed limit (60km/h)  						| 
+| .00     				| Keep right                    				|
+| .00	      			| Speed limit (30km/h)       	 				|
+| .00					| Speed limit (20km/h)    						|
+| .00				    | Road work                  					|
 
-For the fourth image, the model is poorly sure that this is a 50km/h speed limit sign (probability of 0.24), but the image contains a 60km/h speed limit sign. The top five soft max probabilities were 
-
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .24         			| Speed limit (50km/h)  						| 
-| .18     				| Dangerous curve to the left   				|
-| .08	      			| Road narrows on the right 	 				|
-| .08					| Roundabout mandatory							|
-| .07				    | Double curve               					|
-
-For the fifth image, the model is some what sure that this is a stop sign (probability of 0.32), and the image does contain a stop sign. The top five soft max probabilities were 
+For the third image, the model is totally sure that this is a bumpy road sign, and the image does contain a bumpy road sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .32         			| Stop      									| 
-| .26     				| Speed limit (80km/h)   						|
-| .21					| Speed limit (30km/h)							|
-| .09	      			| General caution           	 				|
-| .05				    | Speed limit (20km/h)        					|
+| 1.00         			| Bumpy road   									| 
+| .00     				| Bicycles crossing								|
+| .00					| No vehicles   								|
+| .00	      			| Road narrows on the right 	 				|
+| .00				    | Road work                 					|
+
+
+For the fourth image, the model is totally sure that this is a stop sign, and the image does contain a stop sign. The top five soft max probabilities were 
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 1.00         			| Stop      									| 
+| .00     				| Yield                  						|
+| .00					| Speed limit (120km/h)							|
+| .00	      			| Keep left                 	 				|
+| .00				    | Speed limit (50km/h)        					|
+
+For the fifth image, the model is totally sure that this is a pedestrians sign, and the image does contain a pedestrians sign. The top five soft max probabilities were 
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .99         			| Pedestrians									| 
+| .00					| Right-of-way at the next intersection     	|
+| .00     				| Traffic signals           					|
+| .00	      			| General caution           	 				|
+| .00				    | Road narrows on the right  					|
+
+
+
+
+
 
