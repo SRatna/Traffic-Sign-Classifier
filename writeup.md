@@ -124,7 +124,6 @@ Here are five German traffic signs that I found on the web:
 
 ![alt text][my_signs]
 
-The second image might be difficult to classify because the model has to detect a human figure to classify it as a pedestrian as for other signs this model did pretty good job in classifying them.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set.
 
